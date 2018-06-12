@@ -1,0 +1,94 @@
+section.splash-screen {
+  height: 100%;
+
+  div[class^='slick-'] {
+    height: 100%;
+  }
+
+  div.slick-slider {
+    height: 90%;
+
+    div.slick-slide {
+      div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+
+    .slick-dots li button:before {
+      font-size: 10px;
+    }
+  }
+
+  div.yffr-logo-header {
+    display: flex;
+    flex-grow: 1;
+
+    img.yffr-logo {
+      margin: auto;
+      padding-top: 96px;
+      width: 160px;
+    }
+  }
+
+  p.welcome-message {
+    flex: 0 0 25%;
+    font-size: 1em;
+    padding: 0 10%;
+    text-align: center;
+  }
+
+  h1.energy-and-focus,
+  h1.deescalation,
+  h1.oh-shit,
+  h1.training-and-development {
+    color: #1d79a6;
+    flex: 0 0 15%;
+    font-size: 1.25em;
+    padding-top: 15%;
+    text-align: center;
+  }
+
+  h1.oh-shit {
+    color: #b31f24;
+  }
+
+  div.poa-fab {
+    flex-grow: 1;
+    margin: auto;
+
+    button {
+      border: 1px solid #333;
+      height: 96px;
+      width: 96px;
+
+      svg {
+        font-size: 2em;
+        font-weight: bold;
+      }
+    }
+  }
+
+  h1.training-and-development {
+    flex: 0 0 5%;
+    padding-top: 14%;
+  }
+  div.splash-page-five {
+    height: auto !important;
+
+    div.poa-t-and-d {
+      flex-grow: 1;
+      margin: auto;
+
+      img {
+        width: 128px;
+      }
+    }
+
+    div.acknowledgement-container {
+      margin: 2% 25% 0;
+      max-width: 50%;
+    }
+  }
+}

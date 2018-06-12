@@ -1,0 +1,18 @@
+.App {
+  height: 100vh;
+
+  .btn-default,
+  .btn-default:hover {
+    background-color: #1d79a6;
+  }
+
+  .btn-oh-shit,
+  .btn-oh-shit:hover {
+    background-color: #b31f24;
+  }
+
+  p {
+    font-family: 'Ubuntu';
+    font-size: 14px;
+  }
+}
