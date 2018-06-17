@@ -9,9 +9,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path="/">
-            <SplashScreen />
-          </Route>
+          <Route exact path="/" component={SplashScreen} />
           <Route render={() => <h1>I'm here!</h1>} />
         </div>
       </Router>

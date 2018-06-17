@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { configure, shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-
+import sinon from 'sinon';
 import splashPages from '../SplashPages';
 import PageHeader, * as PageHeaderConstants from '../../../components/PageHeader';
 import {
@@ -180,14 +179,6 @@ describe('YFFR splash pages testing', () => {
         'Development button. 1-2 sentences.';
       const welcomeMessage = <WelcomeMessage message={message} />;
 
-      const acknowledgeButton = (
-        <div className="acknowledgement-container">
-          <Button className="btn-default" variant="contained" color="primary">
-            Got it!
-          </Button>
-        </div>
-      );
-
       expect(pageFiveWrapper, 'correctly renders the header').to.contain(
         header
       );
@@ -198,9 +189,13 @@ describe('YFFR splash pages testing', () => {
         pageFiveWrapper,
         'correctly renders the welcome message'
       ).to.contain(welcomeMessage);
-      expect(pageFiveWrapper, 'correctly renders the acknowledgement button').to.contain(
-        acknowledgeButton
-      );
+      expect(
+        pageFiveWrapper.find('div.acknowledgement-container'),
+        'correctly renders the acknowledgement button'
+      ).to.have.length(1);
+      expect(
+        pageFiveWrapper.find(Button), 'should have an onclick handler'
+      ).to.have.prop('onClick');
     });
   });
 });
