@@ -2,6 +2,16 @@
   "name": "yffr-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "home",
+  "scripts": {
+    "babel": "babel src -d dist --copy-files --ignore test.js,setupTests.js,setup-tests/",
+    "build": "react-scripts build",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+  },
   "dependencies": {
     "@material-ui/core": "^1.2.0",
     "@material-ui/icons": "^1.1.0",
@@ -17,15 +27,6 @@
     "redux-thunk": "^2.2.0",
     "slick-carousel": "^1.8.1"
   },
-  "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "babel": "babel src -d dist --copy-files --ignore test.js,setupTests.js,setup-tests/",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -35,6 +36,7 @@
     "chai-enzyme": "^1.0.0-beta.0",
     "chance": "^1.0.16",
     "cheerio": "^1.0.0-rc.2",
+    "corber": "1.2.8",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "mocha": "^5.2.0",

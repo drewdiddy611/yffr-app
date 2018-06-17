@@ -12,6 +12,7 @@ class App extends Component {
           <Route exact path="/">
             <SplashScreen />
           </Route>
+          <Route render={() => <h1>I'm here!</h1>} />
         </div>
       </Router>
     );
