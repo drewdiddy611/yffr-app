@@ -1,0 +1,43 @@
+section.main-screen {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  div.yffr-logo-header {
+    flex: 0 0 22%;
+
+    img {
+      margin-top: 25%;
+      width: 80px;
+    }
+  }
+
+  h1.default-page-header {
+    flex-shrink: 1;
+    font-size: 1em;
+  }
+
+  div.poa-fab {
+    flex: 0 1 15%;
+    margin: auto;
+
+    button {
+      border: 1px solid #333;
+      height: 64px;
+      width: 64px;
+
+      svg {
+        transform: scale(1.5, 1.5);
+        font-size: 1em;
+        font-weight: bold;
+      }
+    }
+  }
+
+  div.yffr-footer {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between;
+  }
+}

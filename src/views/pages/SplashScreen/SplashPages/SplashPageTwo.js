@@ -18,7 +18,7 @@ export default function SplashPageTwo() {
           className="btn-default"
           variant="fab"
           color="primary"
-          aria-label="add"
+          aria-label="Energy and Focus"
         >
           <AddIcon />
         </Button>

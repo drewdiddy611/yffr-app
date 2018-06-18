@@ -18,7 +18,7 @@ export default function SplashPageThree() {
           className="btn-default"
           variant="fab"
           color="primary"
-          aria-label="add"
+          aria-label="Deescalation"
         >
           <RemoveIcon />
         </Button>

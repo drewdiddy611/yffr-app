@@ -2,9 +2,8 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import sinon from 'sinon';
 import splashPages from '../SplashPages';
-import PageHeader, * as PageHeaderConstants from '../../../components/PageHeader';
+import PageHeader from '../../../components/PageHeader';
 import {
   ENERGY_AND_FOCUS,
   DEESCALATION,
@@ -71,7 +70,11 @@ describe('YFFR splash pages testing', () => {
       const header = <PageHeader type={ENERGY_AND_FOCUS} text={headerText} />;
 
       const fab = (
-        <Button className="btn-default" variant="fab" color="primary" aria-label="add">
+        <Button 
+          className="btn-default" 
+          variant="fab" 
+          color="primary" 
+          aria-label="Energy and Focus">
           <AddIcon />
         </Button>
       );
@@ -101,7 +104,11 @@ describe('YFFR splash pages testing', () => {
       const header = <PageHeader type={DEESCALATION} text={headerText} />;
 
       const fab = (
-        <Button className="btn-default" variant="fab" color="primary" aria-label="add">
+        <Button
+          className="btn-default" 
+          variant="fab" 
+          color="primary" 
+          aria-label="Deescalation">
           <RemoveIcon />
         </Button>
       );
@@ -134,7 +141,11 @@ describe('YFFR splash pages testing', () => {
 
       const fab = (
         <div className="poa-fab oh-shit">
-          <Button className="btn-oh-shit" variant="fab" color="primary" aria-label="add">
+          <Button 
+            className="btn-oh-shit" 
+            variant="fab" 
+            color="primary" 
+            aria-label="Oh Shit!">
             <OhShitIcon />
           </Button>
         </div>

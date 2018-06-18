@@ -23,7 +23,7 @@ export default ({ type, text }) => {
       className = 'training-and-development';
       break;
     default:
-      return null;
+      className = 'default-page-header';
   }
   return <h1 className={className}>{text}</h1>;
 };

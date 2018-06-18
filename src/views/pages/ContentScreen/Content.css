@@ -1,0 +1,14 @@
+div.content-screen {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+  div.content-screen div.yffr-logo-header {
+    flex: 0 0 22%; }
+    div.content-screen div.yffr-logo-header img {
+      margin-top: 25%;
+      width: 80px; }
+  div.content-screen div.yffr-footer {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-between; }

@@ -72,7 +72,12 @@ describe('Page header component testing', () => {
     const wrapper = shallow(
       <PageHeader type={randomType} text={expectedText} />
     );
+    const expectedHeader = (
+      <h1 className={'default-page-header'}>{expectedText}</h1>
+    );
 
-    expect(wrapper.equals(null), 'should not render anything').to.equal(true);
+    expect(
+      wrapper, 'should render a default page header'
+    ).to.contain(expectedHeader);
   });
 });

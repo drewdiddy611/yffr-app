@@ -17,7 +17,7 @@ export default function SplashPageFour() {
           className="btn-oh-shit"
           variant="fab"
           color="primary"
-          aria-label="add"
+          aria-label="Oh Shit!"
         >
           <OhShitIcon />
         </Button>
