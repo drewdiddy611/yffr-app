@@ -5,6 +5,12 @@ import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 
 import App from './App';
+import {
+  SPLASH_URL,
+  HOME_URL,
+  CONTENT_URL,
+  ABOUT_URL
+} from '../App/application-constants';
 import SplashScreen from '../pages/SplashScreen';
 import MainScreen from '../pages/MainScreen';
 import ContentScreen from '../pages/ContentScreen';
@@ -24,19 +30,19 @@ describe('App component testing', () => {
     const splashScreenRoute = appDiv.childAt(0);
     const expectedSplashRouteProps = {
       exact: true,
-      path: '/',
+      path: SPLASH_URL,
       component: SplashScreen
     };
 
     const mainScreenRoute = appDiv.childAt(1);
     const expectedMainScreenRouteProps = {
-      path: '/main',
+      path: HOME_URL,
       component: MainScreen
     };
 
     const contentScreenRoute = appDiv.childAt(2);
     const expectedContentScreenRouteProps = {
-      path: '/content',
+      path: CONTENT_URL,
       component: ContentScreen
     };
 
