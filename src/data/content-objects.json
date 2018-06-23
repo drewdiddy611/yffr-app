@@ -1,0 +1,31 @@
+{
+  "audio": [
+    {}
+  ],
+  "video": {
+    "energy": [
+      {
+        "title": "Yoga For First Responders",
+        "url": "https://www.youtube.com/watch?v=iKfb3ZHHKzc",
+        "thumbnail": "https://img.youtube.com/vi/iKfb3ZHHKzc/0.jpg"
+      },
+      {
+        "title": "The Smart Stretch",
+        "url": "https://www.youtube.com/watch?v=nCmz64eKi4c",
+        "thumbnail": "https://img.youtube.com/vi/nCmz64eKi4c/0.jpg"
+      },
+      {
+        "title": "The Smart Breath",
+        "url": "https://www.youtube.com/watch?v=ksYLfJ2CFHM",
+        "thumbnail": "https://img.youtube.com/vi/ksYLfJ2CFHM/0.jpg"
+      },
+      {
+        "title": "The Important of Training and Protocol",
+        "url": "https://www.youtube.com/watch?v=mqFtbrEz7dg",
+        "thumbnail": "https://img.youtube.com/vi/mqFtbrEz7dg/0.jpg"
+      }
+    ],
+    "deescalation": [],
+    "oh-shit": []
+  }
+}

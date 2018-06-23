@@ -6,6 +6,8 @@ import contentPages from '../ContentPages';
 
 // Content List Page components
 import YFFRLogo from '../../../components/YFFRLogo';
+import ContentListFilterBar from '../../../components/ContentListFilterBar';
+import ContentListWrapper from '../../../components/ContentListWrapper';
 
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 configure({ adapter: new EnzymeAdapter() });
@@ -33,8 +35,18 @@ describe('YFFR content pages testing', () => {
         'must have the yffr logo'
       ).to.have.length(1);
       expect(
-        mainDiv.find('div.hr'),
+        mainDiv.find('.hr'),
         'must have a horizontal rule separating logo and content'
+      ).to.have.length(1);
+      expect(
+        mainDiv.find(ContentListFilterBar),
+        'must have the content list filter bar'
+      ).to.have.length(1);
+
+      const contentListWrapper = mainDiv.find(ContentListWrapper);
+      expect(
+        contentListWrapper,
+        'must have the content list wrapper'
       ).to.have.length(1);
     });
   });

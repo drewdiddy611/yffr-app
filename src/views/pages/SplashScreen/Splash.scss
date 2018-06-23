@@ -1,3 +1,5 @@
+@import "../../../_variables.scss";
+
 section.splash-screen {
   height: 100%;
 
@@ -43,7 +45,7 @@ section.splash-screen {
   h1.deescalation,
   h1.oh-shit,
   h1.training-and-development {
-    color: #1d79a6;
+    color: $color-primary;
     flex: 0 0 15%;
     font-size: 1.25em;
     padding-top: 15%;
@@ -51,7 +53,7 @@ section.splash-screen {
   }
 
   h1.oh-shit {
-    color: #b31f24;
+    color: $color-oh-shit;
   }
 
   div.poa-fab {
