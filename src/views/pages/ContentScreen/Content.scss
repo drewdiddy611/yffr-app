@@ -51,6 +51,25 @@ div.content-screen {
         width: 80px;
       }
     }
+
+    div.content-to-view {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      div#you-tube-player {
+        border: 2px solid #333;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+      }
+
+      p.title {
+        flex-grow: 1;
+        font-size: 1.2em;
+        text-align: center;
+      }
+    }
   }
 
   div.content-filter-bar {

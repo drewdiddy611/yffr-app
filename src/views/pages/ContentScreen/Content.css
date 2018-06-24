@@ -35,6 +35,19 @@ div.content-screen {
       div.content-screen div.content-player div.yffr-logo-header img {
         margin-top: 25%;
         width: 80px; }
+    div.content-screen div.content-player div.content-to-view {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1; }
+      div.content-screen div.content-player div.content-to-view div#you-tube-player {
+        border: 2px solid #333;
+        border-radius: 5px;
+        display: flex;
+        align-items: center; }
+      div.content-screen div.content-player div.content-to-view p.title {
+        flex-grow: 1;
+        font-size: 1.2em;
+        text-align: center; }
   div.content-screen div.content-filter-bar {
     align-self: stretch;
     display: flex;

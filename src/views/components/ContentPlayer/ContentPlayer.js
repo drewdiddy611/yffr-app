@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import YouTubePlayer from 'react-player/lib/players/YouTube';
 import PageHeader from '../PageHeader';
 import YFFRLogo from '../YFFRLogo';
@@ -49,7 +49,12 @@ export const getContent = content => (type, category, id) => {
     const categoryItems = typeItems[category];
     if (categoryItems) {
       const chosenItemId = id === 'random' ? getRandomId(categoryItems.length - 1) : id;
-      return categoryItems[chosenItemId];
+      if (!categoryItems[chosenItemId])
+        return undefined;
+      return {
+        type,
+        ...categoryItems[chosenItemId]
+      }
     }
   }
 
@@ -62,13 +67,36 @@ export const ContentNotFound = () => {
   );
 };
 
+export class ContentToView extends PureComponent {
+  constructor(props) {
+    super(props);
 
-export const ContentToView = contentItem => {
-  return (
-    <div className="content-to-view">
-    </div>
-  );
-};
+    this.state = {
+      ready: false
+    };
+  }
+
+  render() {
+    const {
+      type,
+      url,
+      title
+    } = this.props;
+
+    return (
+      <div className={`content-to-view ${type}`}>
+        <YouTubePlayer
+          id="you-tube-player"
+          url={url}
+          width={'auto'}
+          height={'260px'}
+          controls
+          playing />
+        <p class="title">{title}</p>
+      </div>
+    );
+  }
+}
 
 export default ({ type, category, id }) => {
   const contentItem = getContent(CONTENT)(type, category, id);

@@ -2,6 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
+import YouTubePlayer from 'react-player/lib/players/YouTube';
 
 import CONTENT from '../../../data/content-objects';
 import ContentPlayer, {
@@ -85,7 +86,7 @@ describe('Content Player component testing', () => {
       expect(contentItem).to.be.an('object');
       expect(
         Object.keys(contentItem)
-      ).to.have.deep.members(['title', 'url', 'thumbnail']);
+      ).to.have.deep.members(['type', 'title', 'url', 'thumbnail']);
     });
 
     it('should not get a content item when incorrect type is passed', () => {
@@ -116,10 +117,6 @@ describe('Content Player component testing', () => {
     });
   });
 
-  it.skip('should render the content to view when the content is audio', () => {
-
-  });
-
   describe('video content rendering', () => {
     it('should render correctly when the category is energy', () => {
       const props = {
@@ -130,8 +127,10 @@ describe('Content Player component testing', () => {
 
       const wrapper = shallow(<ContentPlayer {...props} />);
       const contentToView = wrapper.find(ContentToView);
-      const expectedContentProps =
-        getContent(CONTENT)(props.type, props.category, props.id);
+      const expectedContentProps = {
+        type: props.type,
+        ...getContent(CONTENT)(props.type, props.category, props.id)
+      };
 
       expect(contentToView).to.have.length(1);
       expect(contentToView.props()).to.deep.equal(expectedContentProps);
@@ -140,14 +139,16 @@ describe('Content Player component testing', () => {
     it('should render correctly when the category is deescalation', () => {
       const props = {
         type: givenCorrectType(),
-        category: 'oh-shit',
+        category: 'deescalation',
         id: givenCorrectId()
       };
 
       const wrapper = shallow(<ContentPlayer {...props} />);
       const contentToView = wrapper.find(ContentToView);
-      const expectedContentProps =
-        getContent(CONTENT)(props.type, props.category, props.id);
+      const expectedContentProps = {
+        type: props.type,
+        ...getContent(CONTENT)(props.type, props.category, props.id)
+      };
 
       expect(contentToView).to.have.length(1);
       expect(contentToView.props()).to.deep.equal(expectedContentProps);
@@ -162,11 +163,38 @@ describe('Content Player component testing', () => {
 
       const wrapper = shallow(<ContentPlayer {...props} />);
       const contentToView = wrapper.find(ContentToView);
-      const expectedContentProps =
-        getContent(CONTENT)(props.type, props.category, props.id);
+      const expectedContentProps = {
+        type: props.type,
+        ...getContent(CONTENT)(props.type, props.category, props.id)
+      };
 
       expect(contentToView).to.have.length(1);
       expect(contentToView.props()).to.deep.equal(expectedContentProps);
+    });
+
+    describe('ContentToView component testing', () => {
+      it('renders correctly when the content is a video', () => {
+        const contentItem = {
+          type: 'video',
+          title: 'Yoga For First Responders',
+          url: 'https://www.youtube.com/watch?v=iKfb3ZHHKzc',
+          thumbnail: 'https://img.youtube.com/vi/iKfb3ZHHKzc/0.jpg'
+        };
+
+        const wrapper = shallow(<ContentToView {...contentItem} />);
+        const mainDiv = wrapper.find('div.content-to-view.video');
+        const contentDiv = mainDiv.find(YouTubePlayer);
+        console.log
+        expect(
+          mainDiv,
+          'must have the main container div with content-to-view & {type} classes'
+        ).to.have.length(1);
+        expect(
+          contentDiv,
+          'must have the youtube player'
+        ).to.have.length(1);
+      })
+
     });
   });
 });
