@@ -11,6 +11,7 @@ import {
 import SplashScreen from '../pages/SplashScreen';
 import MainScreen from '../pages/MainScreen';
 import ContentScreen from '../pages/ContentScreen';
+import AboutScreen from '../pages/AboutScreen';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path={SPLASH_URL} component={SplashScreen} />
           <Route path={HOME_URL} component={MainScreen} />
           <Route path={CONTENT_URL} component={ContentScreen} />
+          <Route path={ABOUT_URL} component={AboutScreen} />
         </div>
       </Router>
     );

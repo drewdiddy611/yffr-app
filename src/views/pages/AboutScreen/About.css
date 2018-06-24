@@ -1,0 +1,24 @@
+section.about-screen {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+  section.about-screen div.yffr-logo-header {
+    flex: 0 0 22%; }
+    section.about-screen div.yffr-logo-header img {
+      margin-top: 25%;
+      width: 80px; }
+  section.about-screen h1.default-page-header {
+    flex-shrink: 1;
+    font-size: 1em; }
+  section.about-screen div.about-us {
+    overflow-y: scroll;
+    padding: 0 5%;
+    margin-bottom: 5px; }
+    section.about-screen div.about-us p {
+      font-size: 1.1em; }
+  section.about-screen div.yffr-footer {
+    align-self: stretch;
+    display: flex;
+    flex: 1 0 29px;
+    justify-content: space-between; }

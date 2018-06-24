@@ -9,14 +9,20 @@ import YFFRLogo from '../../../components/YFFRLogo';
 import ContentListFilterBar from '../../../components/ContentListFilterBar';
 import ContentListWrapper from '../../../components/ContentListWrapper';
 
+// Content View Page components'
+import { ContentNotFound } from '../../ContentScreen/ContentPages/ContentViewPage';
+
 import EnzymeAdapter from 'enzyme-adapter-react-16';
+import ContentPlayer from '../../../components/ContentPlayer/ContentPlayer';
 configure({ adapter: new EnzymeAdapter() });
 chai.use(chaiEnzyme());
 
 describe('YFFR content pages testing', () => {
   const {
-    ContentListPage
+    ContentListPage,
+    ContentViewPage
   } = contentPages;
+
   describe('Content list page component testing', () => {
     let contentListPageWrapper;
     beforeEach(() => {
@@ -49,5 +55,21 @@ describe('YFFR content pages testing', () => {
         'must have the content list wrapper'
       ).to.have.length(1);
     });
+  });
+
+  describe('Content view page component testing', () => {
+    it('renders the content player', () => {
+      const mockRouterProps = {
+        match: {
+          params: {}
+        }
+      };
+      const wrapper = shallow(<ContentViewPage {...mockRouterProps} />);
+
+      const mainDiv = wrapper.find('div.content-screen');
+      expect(mainDiv).to.have.length(1);
+      expect(mainDiv.children()).to.have.length(1);
+      expect(mainDiv.find(ContentPlayer)).to.have.length(1);
+    })
   });
 });

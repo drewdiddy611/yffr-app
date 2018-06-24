@@ -14,6 +14,7 @@ import {
 import SplashScreen from '../pages/SplashScreen';
 import MainScreen from '../pages/MainScreen';
 import ContentScreen from '../pages/ContentScreen';
+import AboutScreen from '../pages/AboutScreen';
 
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 configure({ adapter: new EnzymeAdapter() });
@@ -46,11 +47,18 @@ describe('App component testing', () => {
       component: ContentScreen
     };
 
+    const aboutScreenRoute = appDiv.childAt(3);
+    const expectedAboutScreenRouteProps = {
+      path: ABOUT_URL,
+      component: AboutScreen
+    };
+
     expect(appDiv).to.have.length(1);
-    expect(appDiv.find(Route)).to.have.length(3);
+    expect(appDiv.find(Route)).to.have.length(4);
     expect(splashScreenRoute.props()).to.deep.equal(expectedSplashRouteProps);
     expect(mainScreenRoute.props()).to.deep.equal(expectedMainScreenRouteProps);
-    expect(mainScreenRoute.props()).to.deep.equal(expectedMainScreenRouteProps);
+    expect(contentScreenRoute.props()).to.deep.equal(expectedContentScreenRouteProps);
+    expect(aboutScreenRoute.props()).to.deep.equal(expectedAboutScreenRouteProps);
   });
 
 

@@ -41,21 +41,6 @@ section.splash-screen {
     text-align: center;
   }
 
-  h1.energy-and-focus,
-  h1.deescalation,
-  h1.oh-shit,
-  h1.training-and-development {
-    color: $color-primary;
-    flex: 0 0 15%;
-    font-size: 1.25em;
-    padding-top: 15%;
-    text-align: center;
-  }
-
-  h1.oh-shit {
-    color: $color-oh-shit;
-  }
-
   div.poa-fab {
     flex-grow: 1;
     margin: auto;

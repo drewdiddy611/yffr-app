@@ -20,6 +20,21 @@ div.content-screen {
     div.content-screen div.yffr-logo-header img {
       margin-top: 25%;
       width: 80px; }
+  div.content-screen div.content-player {
+    align-self: stretch;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%; }
+    div.content-screen div.content-player h1 {
+      flex-basis: 5%;
+      margin-bottom: 0;
+      padding-top: 5%; }
+    div.content-screen div.content-player div.yffr-logo-header {
+      flex: 0 0 22%; }
+      div.content-screen div.content-player div.yffr-logo-header img {
+        margin-top: 25%;
+        width: 80px; }
   div.content-screen div.content-filter-bar {
     align-self: stretch;
     display: flex;

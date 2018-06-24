@@ -22,17 +22,6 @@ section.splash-screen {
     font-size: 1em;
     padding: 0 10%;
     text-align: center; }
-  section.splash-screen h1.energy-and-focus,
-  section.splash-screen h1.deescalation,
-  section.splash-screen h1.oh-shit,
-  section.splash-screen h1.training-and-development {
-    color: #1d79a6;
-    flex: 0 0 15%;
-    font-size: 1.25em;
-    padding-top: 15%;
-    text-align: center; }
-  section.splash-screen h1.oh-shit {
-    color: #b31f24; }
   section.splash-screen div.poa-fab {
     flex-grow: 1;
     margin: auto; }

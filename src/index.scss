@@ -1,10 +1,15 @@
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
+@import '_variables.scss';
 
 body {
   margin: 0;
   padding: 0;
   font-family: Ubuntu;
+
+  div {
+    overflow-x: none;
+  }
 }
 
 .hr {
@@ -12,4 +17,19 @@ body {
   display: block;
   height: 0px;
   width: 90%;
+}
+
+h1.energy-and-focus,
+h1.deescalation,
+h1.oh-shit,
+h1.training-and-development {
+  color: $color-primary;
+  flex: 0 0 15%;
+  font-size: 1.25em;
+  padding-top: 15%;
+  text-align: center;
+}
+
+h1.oh-shit {
+  color: $color-oh-shit;
 }

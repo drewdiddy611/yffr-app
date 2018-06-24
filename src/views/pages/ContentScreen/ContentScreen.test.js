@@ -6,7 +6,8 @@ import chaiEnzyme from 'chai-enzyme';
 
 import ContentScreen from './ContentScreen';
 import {
-  CONTENT_URL
+  CONTENT_URL,
+  CONTENT_VIEW_URL
 } from '../../App/application-constants';
 import contentPages from './ContentPages';
 import YFFRFooter from '../../components/YFFRFooter';
@@ -16,7 +17,8 @@ configure({ adapter: new EnzymeAdapter() });
 chai.use(chaiEnzyme());
 
 const {
-  ContentListPage
+  ContentListPage,
+  ContentViewPage
 } = contentPages;
 describe('Content list page component testing', () => {
   let wrapper;
@@ -26,6 +28,7 @@ describe('Content list page component testing', () => {
 
   it('should render the correct markup', () => {
     const contentDiv = wrapper.find('.Content');
+
     const contentListRoute = contentDiv.childAt(0);
     const expectedContentListRouteProps = {
       exact: true,
@@ -33,9 +36,17 @@ describe('Content list page component testing', () => {
       component: ContentListPage
     };
 
+    const contentViewRoute = contentDiv.childAt(1);
+    const expectedContentViewRouteProps = {
+      exact: true,
+      path: CONTENT_VIEW_URL,
+      component: ContentViewPage
+    };
+
     expect(contentDiv).to.have.length(1);
-    expect(contentDiv.find(Route)).to.have.length(1);
+    expect(contentDiv.find(Route)).to.have.length(2);
     expect(contentListRoute.props()).to.deep.equal(expectedContentListRouteProps);
+    expect(contentViewRoute.props()).to.deep.equal(expectedContentViewRouteProps);
   });
 
   it('should render the YFFR footer component', () => {

@@ -30,6 +30,29 @@ div.content-screen {
     }
   }
 
+  div.content-player {
+    align-self: stretch;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    h1 {
+      flex-basis: 5%;
+      margin-bottom: 0;
+      padding-top: 5%;
+    }
+
+    div.yffr-logo-header {
+      flex: 0 0 22%;
+  
+      img {
+        margin-top: 25%;
+        width: 80px;
+      }
+    }
+  }
+
   div.content-filter-bar {
     align-self: stretch;
     display: flex;

@@ -1,0 +1,37 @@
+section.about-screen {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  div.yffr-logo-header {
+    flex: 0 0 22%;
+
+    img {
+      margin-top: 25%;
+      width: 80px;
+    }
+  }
+
+  h1.default-page-header {
+    flex-shrink: 1;
+    font-size: 1em;
+  }
+
+  div.about-us {
+    overflow-y: scroll;
+    padding: 0 5%;
+    margin-bottom: 5px;
+
+    p {
+      font-size: 1.1em;
+    }
+  }
+
+  div.yffr-footer {
+    align-self: stretch;
+    display: flex;
+    flex: 1 0 29px;
+    justify-content: space-between;
+  }
+}

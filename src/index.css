@@ -4,9 +4,24 @@ body {
   margin: 0;
   padding: 0;
   font-family: Ubuntu; }
+  body div {
+    overflow-x: none; }
 
 .hr {
   border-top: 1px solid #8c8b8b;
   display: block;
   height: 0px;
   width: 90%; }
+
+h1.energy-and-focus,
+h1.deescalation,
+h1.oh-shit,
+h1.training-and-development {
+  color: #1d79a6;
+  flex: 0 0 15%;
+  font-size: 1.25em;
+  padding-top: 15%;
+  text-align: center; }
+
+h1.oh-shit {
+  color: #b31f24; }
