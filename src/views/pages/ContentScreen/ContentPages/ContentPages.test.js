@@ -18,58 +18,60 @@ configure({ adapter: new EnzymeAdapter() });
 chai.use(chaiEnzyme());
 
 describe('YFFR content pages testing', () => {
-  const {
-    ContentListPage,
-    ContentViewPage
-  } = contentPages;
+    const {
+        ContentListPage,
+        ContentViewPage
+    } = contentPages;
 
-  describe('Content list page component testing', () => {
-    let contentListPageWrapper;
-    beforeEach(() => {
-      contentListPageWrapper = shallow(<ContentListPage />);
+    describe('Content list page component testing', () => {
+        let contentListPageWrapper;
+        beforeEach(() => {
+            contentListPageWrapper = shallow(<ContentListPage />);
+        });
+
+        it('renders the YFFR logo, hr, filter menus and content and content list', () => {
+            const mainDiv = contentListPageWrapper.find('div.content-screen');
+            expect(
+                mainDiv,
+                'must have div with class content-screen'
+            ).to.have.length(1);
+
+            expect(
+                mainDiv.find(YFFRLogo),
+                'must have the yffr logo'
+            ).to.have.length(1);
+            expect(
+                mainDiv.find('.hr'),
+                'must have a horizontal rule separating logo and content'
+            ).to.have.length(1);
+            expect(
+                mainDiv.find(ContentListFilterBar),
+                'must have the content list filter bar'
+            ).to.have.length(1);
+
+            const contentListWrapper = mainDiv.find(ContentListWrapper);
+            expect(
+                contentListWrapper,
+                'must have the content list wrapper'
+            ).to.have.length(1);
+        });
     });
 
-    it('renders the YFFR logo, hr, filter menus and content and content list', () => {
-      const mainDiv = contentListPageWrapper.find('div.content-screen');
-      expect(
-        mainDiv,
-        'must have div with class content-screen'
-      ).to.have.length(1);
+    describe('Content view page component testing', () => {
+        it('renders the content player', () => {
+            const mockRouterProps = {
+                match: {
+                    params: {}
+                }
+            };
+            const wrapper = shallow(<ContentViewPage {...mockRouterProps} />);
 
-      expect(
-        mainDiv.find(YFFRLogo),
-        'must have the yffr logo'
-      ).to.have.length(1);
-      expect(
-        mainDiv.find('.hr'),
-        'must have a horizontal rule separating logo and content'
-      ).to.have.length(1);
-      expect(
-        mainDiv.find(ContentListFilterBar),
-        'must have the content list filter bar'
-      ).to.have.length(1);
+            const mainDiv = wrapper.find('div.content-screen');
+            expect(mainDiv).to.have.length(1);
+            expect(mainDiv.children()).to.have.length(1);
+            expect(mainDiv.find(ContentPlayer)).to.have.length(1);
+        });
 
-      const contentListWrapper = mainDiv.find(ContentListWrapper);
-      expect(
-        contentListWrapper,
-        'must have the content list wrapper'
-      ).to.have.length(1);
+
     });
-  });
-
-  describe('Content view page component testing', () => {
-    it('renders the content player', () => {
-      const mockRouterProps = {
-        match: {
-          params: {}
-        }
-      };
-      const wrapper = shallow(<ContentViewPage {...mockRouterProps} />);
-
-      const mainDiv = wrapper.find('div.content-screen');
-      expect(mainDiv).to.have.length(1);
-      expect(mainDiv.children()).to.have.length(1);
-      expect(mainDiv.find(ContentPlayer)).to.have.length(1);
-    })
-  });
 });

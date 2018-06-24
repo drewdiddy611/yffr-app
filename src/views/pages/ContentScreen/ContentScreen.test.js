@@ -38,7 +38,6 @@ describe('Content list page component testing', () => {
 
     const contentViewRoute = contentDiv.childAt(1);
     const expectedContentViewRouteProps = {
-      exact: true,
       path: CONTENT_VIEW_URL,
       component: ContentViewPage
     };

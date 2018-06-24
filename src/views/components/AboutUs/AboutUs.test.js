@@ -24,6 +24,6 @@ describe('About Us component testing', () => {
     const mainDiv = wrapper.find('div.about-us');
 
     expect(mainDiv).to.have.length(1);
-    expect(mainDiv.find('p')).to.have.length(1);
+    expect(mainDiv.find('p')).to.have.length(5);
   })
 });

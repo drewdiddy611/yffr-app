@@ -48,7 +48,7 @@ export const getContent = content => (type, category, id) => {
   if (typeItems) {
     const categoryItems = typeItems[category];
     if (categoryItems) {
-      const chosenItemId = id === 'random' ? getRandomId(categoryItems.length) : id;
+      const chosenItemId = id === 'random' ? getRandomId(categoryItems.length - 1) : id;
       return categoryItems[chosenItemId];
     }
   }
