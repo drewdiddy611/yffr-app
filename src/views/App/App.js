@@ -22,7 +22,7 @@ class App extends Component {
           <Route path={HOME_URL} component={MainScreen} />
           <Route path={CONTENT_URL} component={ContentScreen} />
           <Route path={ABOUT_URL} component={AboutScreen} />
-          <Route component={MainScreen} />
+          <Route component={SpashScreen} />
         </div>
       </Router>
     );
