@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import YouTubePlayer from 'react-player/lib/players/YouTube';
+import { withRouter } from 'react-router';
+import ReactPlayer from 'react-player';
 import PageHeader from '../PageHeader';
 import YFFRLogo from '../YFFRLogo';
 import Chance from 'chance';
@@ -10,6 +11,7 @@ import {
   DEESCALATION,
   OH_SHIT
 } from '../PageHeader/page-header-constants';
+import PlayerControls from '../PlayerControls';
 
 const getHeaderTypeFromCategory = category => {
   switch (category) {
@@ -48,10 +50,12 @@ export const getContent = content => (type, category, id) => {
   if (typeItems) {
     const categoryItems = typeItems[category];
     if (categoryItems) {
-      const chosenItemId = id === 'random' ? getRandomId(categoryItems.length - 1) : id;
+      let chosenItemId = id === 'random' ? getRandomId(categoryItems.length - 1) : id;
       if (!categoryItems[chosenItemId])
         return undefined;
       return {
+        id,
+        category,
         type,
         ...categoryItems[chosenItemId]
       }
@@ -67,13 +71,45 @@ export const ContentNotFound = () => {
   );
 };
 
-export class ContentToView extends PureComponent {
+class ContentToView extends PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      ready: false
+      isPlaying: false
     };
+
+    this.contentPlayer = React.createRef();
+    this.playerControls = React.createRef();
+  }
+
+  onPrevious = () => {
+    const { history, match } = this.props;
+
+    console.log(match);
+  }
+
+  onPause = () => {
+    this.setState({
+      isPlaying: false
+    });
+  }
+
+  onProgress = progress => {
+    const controls = this.playerControls.current;
+    if (controls && controls.onProgress) {
+      controls.onProgress(progress);
+    }
+  }
+
+  onResume = () => {
+    this.setState({
+      isPlaying: true
+    });
+  }
+
+  onNext = () => {
+
   }
 
   render() {
@@ -84,33 +120,47 @@ export class ContentToView extends PureComponent {
     } = this.props;
 
     return (
-      <div className={`content-to-view ${type}`}>
-        <YouTubePlayer
+      <div className={`content-to-view`}>
+        <ReactPlayer
+          onReady={this.onResume}
+          onProgress={this.onProgress}
+          progressInterval={500}
+          ref={this.contentPlayer}
           id="you-tube-player"
+          style={{ display: type === 'audio' ? 'none' : 'block' }}
           url={url}
           width={'auto'}
           height={'260px'}
           controls
-          playing />
-        <p class="title">{title}</p>
+          playing={this.state.isPlaying} />
+        <p className="title">{title}</p>
+        {type === 'audio' ?
+          <PlayerControls
+            ref={this.playerControls}
+            isPlaying={this.state.isPlaying}
+            onPrevious={this.onPrevious}
+            onPause={this.onPause}
+            onResume={this.onResume}
+            onNext={this.onNext} /> : null}
+
       </div>
     );
   }
 }
 
+export const ViewableContent = process.env.NODE_ENV === 'test' ?
+  ContentToView : withRouter(ContentToView);
+
 export default ({ type, category, id }) => {
   const contentItem = getContent(CONTENT)(type, category, id);
 
   return (
-    <div className="content-player">
+    <div className={`content-player ${type}`}>
       <PageHeader
         type={getHeaderTypeFromCategory(category)}
         text={getHeaderTextFromCategory(category)} />
       <YFFRLogo />
-      {
-        !contentItem ? <ContentNotFound /> :
-          <ContentToView {...contentItem} />
-      }
+      {!contentItem ? <ContentNotFound /> : <ViewableContent {...contentItem} />}
     </div>
   );
 };

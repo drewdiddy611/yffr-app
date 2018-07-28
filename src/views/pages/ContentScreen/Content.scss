@@ -56,6 +56,8 @@ div.content-screen {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+      padding: 0 10px;
+      width: 80%;
 
       div#you-tube-player {
         border: 2px solid #333;
@@ -68,6 +70,46 @@ div.content-screen {
         flex-grow: 1;
         font-size: 1.2em;
         text-align: center;
+      }
+    }
+
+    div.control-actions {
+      padding: 10% 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      button {
+        background-color: #ddd;
+        color: #666;
+      }
+
+      button:nth-of-type(2) {
+        svg {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }
+
+  div.content-player.audio {
+    div.yffr-logo-header {
+      flex: 0 0 22%;
+  
+      img {
+        margin-bottom: 15%;
+        margin-top: 25%;
+        width: 160px;
+      }
+    }
+
+    div.content-to-view {
+      p.title {
+        flex: 0 1 auto;
+      }
+
+      div.player-controls {
+        margin-top: 20px;
       }
     }
   }

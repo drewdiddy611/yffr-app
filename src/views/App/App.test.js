@@ -28,37 +28,38 @@ describe('App component testing', () => {
 
   it('renders the correct markup', () => {
     const appDiv = wrapper.find('.App');
-    const splashScreenRoute = appDiv.childAt(0);
+
+    const mainScreenRoute = appDiv.childAt(0);
+    const expectedMainScreenRouteProps = {
+      path: HOME_URL,
+      component: MainScreen
+    };
+
+    const contentScreenRoute = appDiv.childAt(1);
+    const expectedContentScreenRouteProps = {
+      path: CONTENT_URL,
+      component: ContentScreen
+    };
+
+    const aboutScreenRoute = appDiv.childAt(2);
+    const expectedAboutScreenRouteProps = {
+      path: ABOUT_URL,
+      component: AboutScreen
+    };
+
+    const splashScreenRoute = appDiv.childAt(3);
     const expectedSplashRouteProps = {
       exact: true,
       path: SPLASH_URL,
       component: SplashScreen
     };
 
-    const mainScreenRoute = appDiv.childAt(1);
-    const expectedMainScreenRouteProps = {
-      path: HOME_URL,
-      component: MainScreen
-    };
-
-    const contentScreenRoute = appDiv.childAt(2);
-    const expectedContentScreenRouteProps = {
-      path: CONTENT_URL,
-      component: ContentScreen
-    };
-
-    const aboutScreenRoute = appDiv.childAt(3);
-    const expectedAboutScreenRouteProps = {
-      path: ABOUT_URL,
-      component: AboutScreen
-    };
-
     expect(appDiv).to.have.length(1);
     expect(appDiv.find(Route)).to.have.length(4);
-    expect(splashScreenRoute.props()).to.deep.equal(expectedSplashRouteProps);
     expect(mainScreenRoute.props()).to.deep.equal(expectedMainScreenRouteProps);
     expect(contentScreenRoute.props()).to.deep.equal(expectedContentScreenRouteProps);
     expect(aboutScreenRoute.props()).to.deep.equal(expectedAboutScreenRouteProps);
+    expect(splashScreenRoute.props()).to.deep.equal(expectedSplashRouteProps);
   });
 
 

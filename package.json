@@ -2,7 +2,7 @@
   "name": "yffr-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://localhost:3000",
+  "homepage": "gibberish",
   "scripts": {
     "babel": "babel src -d dist --copy-files --ignore test.js,setupTests.js,setup-tests/",
     "build": "node scripts/build.js",
@@ -38,6 +38,7 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "npm": "^6.2.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",

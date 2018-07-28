@@ -18,11 +18,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Route exact path={SPLASH_URL} component={SplashScreen} />
           <Route path={HOME_URL} component={MainScreen} />
           <Route path={CONTENT_URL} component={ContentScreen} />
           <Route path={ABOUT_URL} component={AboutScreen} />
-          <Route component={SpashScreen} />
+          <Route exact path={SPLASH_URL} component={SplashScreen} />
         </div>
       </Router>
     );

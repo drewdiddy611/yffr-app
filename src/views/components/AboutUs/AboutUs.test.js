@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { configure, shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
@@ -12,7 +11,6 @@ configure({ adapter: new EnzymeAdapter() });
 chai.use(chaiEnzyme());
 
 const chance = new Chance();
-const givenText = () => chance.string();
 
 describe('About Us component testing', () => {
   let wrapper;

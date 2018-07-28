@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router';
-import ContentPlayer from '../../../components/ContentPlayer/ContentPlayer';
+import ContentPlayer from '../../../components/ContentPlayer';
 
 const ContentViewPage = ({ match }) => {
   const { params } = match;
