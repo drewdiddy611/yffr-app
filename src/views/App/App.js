@@ -22,6 +22,7 @@ class App extends Component {
           <Route path={CONTENT_URL} component={ContentScreen} />
           <Route path={ABOUT_URL} component={AboutScreen} />
           <Route exact path={SPLASH_URL} component={SplashScreen} />
+          <Route component={SplashScreen} />
         </div>
       </Router>
     );
