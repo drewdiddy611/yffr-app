@@ -59,7 +59,7 @@ class Application extends React.Component {
   render() {
 
     switch (this.state.location[0]) {
-      case '':
+      case 'asdf':
         return <Link locationSetter={this.setLocation} href='#n'>
           <div><h1>Index Page</h1></div>
         </Link>
@@ -76,8 +76,8 @@ class Application extends React.Component {
           <div><h1>2 Page</h1></div>
         </Link>
       default:
-        return <Link locationSetter={this.setLocation} href=''>
-          <div><h1>Not Found</h1></div>;
+        return <Link locationSetter={this.setLocation} href='#asdf'>
+          <div><h1>Not Found</h1></div>
         </Link>
     }
   }
@@ -85,9 +85,10 @@ class Application extends React.Component {
 
 //handleNewHash()
 window.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<Application location={['']}/>, document.getElementById('root'));
+  ReactDOM.render(<Application location={['asdf']}/>, document.getElementById('root'));
 });
 
-// setTimeout(() => {
-//   document.querySelector('h1').click();
-// }, 2000);
+//  setTimeout(() => {
+//   window.scrollTo(500, 0);
+// //   document.querySelector('h1').click();
+//  }, 2000);
