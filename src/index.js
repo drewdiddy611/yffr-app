@@ -36,6 +36,10 @@ const Link = ({children, href}) => {
 
 class Application extends React.Component {
   render() {
+    return <Link href='#n'>
+    <div><h1>Index Page</h1></div>
+  </Link>
+
     switch (this.props.location[0]) {
       case '':
         return <Link href='#n'>
@@ -67,5 +71,5 @@ function handleNewHash() {
 }
 
 // Handle the initial route and browser navigation events
-handleNewHash()
 window.addEventListener('hashchange', handleNewHash, false);
+handleNewHash()
