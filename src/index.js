@@ -49,12 +49,12 @@ class Application extends React.Component {
     this.setState({location});
   }
 
-  componentDidMount() {
-    const location = '';
-    setTimeout(() => {
-      setLocation('');
-    }, 2000)
-  }
+  // componentDidMount() {
+  //   const location = '';
+  //   setTimeout(() => {
+  //     setLocation('');
+  //   }, 2000)
+  // }
 
   render() {
 
@@ -84,8 +84,10 @@ class Application extends React.Component {
 };
 
 //handleNewHash()
-window.addEventListener('loaded')
-ReactDOM.render(<Application location={['']}/>, document.getElementById('root'));
+window.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(<Application location={['']}/>, document.getElementById('root'));
+});
+
 // setTimeout(() => {
 //   document.querySelector('h1').click();
 // }, 2000);
