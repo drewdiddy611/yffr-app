@@ -25,9 +25,6 @@ const Link = ({children, href, locationSetter}) => {
 
   const changeHash = () => {
     window.location.href = href;
-
-    var location = window.location.hash.replace(/^#\/?|\/$/g, '').split('/');
-    locationSetter(location);
   }
 
   return (
@@ -43,40 +40,42 @@ class Application extends React.Component {
     this.state = {
       location: props.location
     }
-
   }
+
+  componentDidMount() {
+    window.addEventListener('hashchange', (e) => {
+      const location = e.newURL.split('#')[1] || '';
+      this.setState({
+        location
+      });
+    });
+  }
+
   setLocation = location => {
-    this.setState({location});
+  
   }
-
-  // componentDidMount() {
-  //   const location = '';
-  //   setTimeout(() => {
-  //     setLocation('');
-  //   }, 2000)
-  // }
 
   render() {
 
-    switch (this.state.location[0]) {
+    switch (this.state.location) {
       case 'asdf':
-        return <Link locationSetter={this.setLocation} href='#n'>
+        return <Link href='#n'>
           <div><h1>Index Page</h1></div>
         </Link>
       case 'n':
-        return <Link locationSetter={this.setLocation} href='#1'>
+        return <Link href='#1'>
           <div><h1>n-word Page</h1></div>
         </Link>
       case '1':
-        return <Link locationSetter={this.setLocation} href='#2'>
+        return <Link href='#2'>
           <div><h1>1 Page</h1></div>
         </Link>
       case '2':        
-        return <Link locationSetter={this.setLocation} href='#3'>
+        return <Link href='#3'>
           <div><h1>2 Page</h1></div>
         </Link>
       default:
-        return <Link locationSetter={this.setLocation} href='#asdf'>
+        return <Link href='#asdf'>
           <div><h1>Not Found</h1></div>
         </Link>
     }
@@ -85,10 +84,6 @@ class Application extends React.Component {
 
 //handleNewHash()
 window.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(<Application location={['asdf']}/>, document.getElementById('root'));
+  ReactDOM.render(<Application location={'asdf'}/>, document.getElementById('root'));
 });
 
-//  setTimeout(() => {
-//   window.scrollTo(500, 0);
-// //   document.querySelector('h1').click();
-//  }, 2000);
